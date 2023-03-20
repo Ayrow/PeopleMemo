@@ -12,6 +12,8 @@ struct ContentView: View {
     @State private var inputImage: UIImage?
     @State private var showImagePicker = false
     
+    @StateObject private var viewModel = ViewModel()
+    
     var body: some View {
         NavigationStack {
             VStack {
