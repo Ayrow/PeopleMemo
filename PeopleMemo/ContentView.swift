@@ -8,15 +8,43 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var image: Image?
+    @State private var inputImage: UIImage?
+    @State private var showImagePicker = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationStack {
+            VStack {
+                image?
+                    .resizable()
+                    .scaledToFit()
+                Text("Hello, world!")
+            }
+            .navigationTitle("People Memo")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    EditButton()
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        showImagePicker = true
+                    } label: {
+                        Label("Add image", systemImage: "plus")
+                    }
+
+                }
+            }
         }
-        .padding()
+        .sheet(isPresented: $showImagePicker) {
+            ImagePicker(image: $inputImage)
+        }
     }
+    
+    func loadImage() {
+        guard let inputImage = inputImage else { return }
+        image = Image(uiImage: inputImage)
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
