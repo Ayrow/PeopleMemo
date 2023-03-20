@@ -18,6 +18,7 @@ struct ContentView: View {
                 image?
                     .resizable()
                     .scaledToFit()
+                
                 Text("Hello, world!")
             }
             .navigationTitle("People Memo")
@@ -33,6 +34,9 @@ struct ContentView: View {
                     }
 
                 }
+            }
+            .onChange(of: inputImage) { _ in
+                loadImage()
             }
         }
         .sheet(isPresented: $showImagePicker) {
