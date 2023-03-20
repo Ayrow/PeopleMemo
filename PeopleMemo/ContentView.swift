@@ -8,20 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var image: Image?
-    @State private var inputImage: UIImage?
-    @State private var showImagePicker = false
     
     @StateObject private var viewModel = ViewModel()
     
     var body: some View {
         NavigationStack {
-            VStack {
-                image?
-                    .resizable()
-                    .scaledToFit()
-                
-                Text("Hello, world!")
+            List {
+                ForEach(viewModel.people) { person in
+                    HStack {
+                        Text(person.name)
+                        Image(uiImage: person.photo ?? UIImage())
+                    }
+                }
             }
             .navigationTitle("People Memo")
             .toolbar {
@@ -30,25 +28,23 @@ struct ContentView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        showImagePicker = true
+                        viewModel.showImagePicker = true
                     } label: {
                         Label("Add image", systemImage: "plus")
                     }
 
                 }
             }
-            .onChange(of: inputImage) { _ in
-                loadImage()
+            .onChange(of: viewModel.selectedPhoto) { _ in
+                viewModel.showEditSheet.toggle()
             }
         }
-        .sheet(isPresented: $showImagePicker) {
-            ImagePicker(image: $inputImage)
+        .sheet(isPresented: $viewModel.showImagePicker) {
+            ImagePicker(image: $viewModel.selectedPhoto)
         }
-    }
-    
-    func loadImage() {
-        guard let inputImage = inputImage else { return }
-        image = Image(uiImage: inputImage)
+        .sheet(isPresented: $viewModel.showEditSheet) {
+            Text("Hello")
+        }
     }
     
 }

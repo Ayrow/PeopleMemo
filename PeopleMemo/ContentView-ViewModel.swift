@@ -6,11 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
 extension ContentView {
     
     @MainActor class ViewModel: ObservableObject {
         @Published private(set) var people: [Person]
+        @Published var selectedPhoto: UIImage?
+        @Published var showImagePicker = false
+        @Published var showEditSheet = false
         
         let savePath = FileManager.documentsDirectory.appendingPathComponent("SavedPeople")
         
