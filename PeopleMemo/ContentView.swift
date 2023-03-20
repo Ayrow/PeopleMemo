@@ -17,7 +17,7 @@ struct ContentView: View {
                 ForEach(viewModel.people) { person in
                     HStack {
                         Text(person.name)
-                        Image(uiImage: person.photo ?? UIImage())
+                        Image(uiImage: person.photo ?? UIImage(systemName: "person.crop.square")!)
                     }
                 }
             }
@@ -38,16 +38,16 @@ struct ContentView: View {
             .onChange(of: viewModel.selectedPhoto) { _ in
                 viewModel.showEditSheet.toggle()
             }
+            .sheet(isPresented: $viewModel.showImagePicker) {
+                ImagePicker(image: $viewModel.selectedPhoto)
+            }
+            .sheet(isPresented: $viewModel.showEditSheet) {
+                // TODO: add the edit view
+                }
+            }
         }
-        .sheet(isPresented: $viewModel.showImagePicker) {
-            ImagePicker(image: $viewModel.selectedPhoto)
-        }
-        .sheet(isPresented: $viewModel.showEditSheet) {
-            Text("Hello")
-        }
-    }
     
-}
+    }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
