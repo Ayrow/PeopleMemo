@@ -23,6 +23,18 @@ extension ContentView {
             }
         }
         
+        func addPerson(newPerson: Person) {
+            people.append(newPerson)
+        }
+        
+        func save() {
+            do {
+                let data = try JSONEncoder().encode(people)
+                try data.write(to: savePath, options: [.atomic, .completeFileProtection])
+            } catch {
+                print("Unable to save data")
+            }
+        }
         
         
     }
