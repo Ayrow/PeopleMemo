@@ -35,7 +35,7 @@ struct PersonEditView: View {
                 ToolbarItem {
                     Button("Save"){
                         var newPerson = person
-                        newPerson.id = UUID()
+                        newPerson.id = person.id
                         newPerson.name = name
                         newPerson.photo = person.photo
                         

@@ -27,10 +27,6 @@ extension ContentView {
             }
         }
         
-        func addPerson(newPerson: Person) {
-            people.append(newPerson)
-        }
-        
         func save() {
             do {
                 let data = try JSONEncoder().encode(people)
@@ -38,6 +34,11 @@ extension ContentView {
             } catch {
                 print("Unable to save data")
             }
+        }
+        
+        func addPerson(newPerson: Person) {
+            people.append(newPerson)
+            save()
         }
         
         
