@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-struct Person: Identifiable, Codable {
+struct Person: Identifiable, Codable, Comparable {
     var id: UUID
     var name: String
     var photo: UIImage?

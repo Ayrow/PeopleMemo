@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(viewModel.people) { person in
+                ForEach(viewModel.people.sorted()) { person in
                     HStack {
                         Text(person.name)
                         Spacer()
