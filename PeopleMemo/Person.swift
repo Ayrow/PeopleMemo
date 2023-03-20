@@ -13,6 +13,10 @@ struct Person: Identifiable, Codable, Comparable {
     var name: String
     var photo: UIImage?
     
+    var wrappedPhoto: UIImage {
+        photo ?? UIImage(systemName: "person.crop.square")!
+    }
+    
     static let example = Person(id: UUID(), name: "John", photo: UIImage(imageLiteralResourceName: "Example"))
 
     enum CodingKeys: CodingKey {

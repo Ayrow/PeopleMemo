@@ -15,13 +15,18 @@ struct ContentView: View {
         NavigationStack {
             List {
                 ForEach(viewModel.people.sorted()) { person in
-                    HStack {
-                        Text(person.name)
-                        Spacer()
-                        Image(uiImage: person.photo ?? UIImage(systemName: "person.crop.square")!)
-                            .resizable()
-                            .frame(width: 50, height: 50)
+                    NavigationLink {
+                        PersonDetailView(person: person)
+                    } label: {
+                        HStack {
+                            Text(person.name)
+                            Spacer()
+                            Image(uiImage: person.wrappedPhoto)
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                        }
                     }
+
                 }
             }
             .navigationTitle("People Memo")

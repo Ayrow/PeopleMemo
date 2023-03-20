@@ -18,7 +18,7 @@ struct PersonEditView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Image(uiImage: person.photo ?? UIImage(systemName: "person.crop.square")!)
+                Image(uiImage: person.wrappedPhoto)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 300, height: 300)
