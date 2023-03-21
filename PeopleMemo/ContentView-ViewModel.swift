@@ -16,6 +16,7 @@ extension ContentView {
         @Published var showImagePicker = false
         @Published var showEditSheet = false
         
+        
         let savePath = FileManager.documentsDirectory.appendingPathComponent("SavedPeople")
         
         init() {
@@ -26,6 +27,7 @@ extension ContentView {
                 people = []
             }
         }
+        
         
         func save() {
             do {
