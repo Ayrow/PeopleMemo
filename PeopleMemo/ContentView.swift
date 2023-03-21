@@ -16,7 +16,7 @@ struct ContentView: View {
             List {
                 ForEach(viewModel.people.sorted()) { person in
                     NavigationLink {
-                        PersonDetailView(person: person)
+                        PersonDetailView(person: person, mapLocation: locationFetcher.wrappedLastKnownLocation)
                     } label: {
                         HStack {
                             Text(person.name)
