@@ -5,17 +5,17 @@
 //  Created by Aymeric Pilaert on 20/03/2023.
 //
 
-import Foundation
 import UIKit
+import MapKit
 
 extension ContentView {
     
     @MainActor class ViewModel: ObservableObject {
+        
         @Published private(set) var people: [Person]
         @Published var selectedPhoto: UIImage?
         @Published var showImagePicker = false
         @Published var showEditSheet = false
-        
         
         let savePath = FileManager.documentsDirectory.appendingPathComponent("SavedPeople")
         
@@ -42,6 +42,7 @@ extension ContentView {
             people.append(newPerson)
             save()
         }
+       
         
         
     }

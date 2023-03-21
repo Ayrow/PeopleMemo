@@ -11,6 +11,10 @@ import CoreLocation
 class LocationFetcher: NSObject, CLLocationManagerDelegate {
     let manager = CLLocationManager()
     var lastKnownLocation: CLLocationCoordinate2D?
+    
+    var wrappedLastKnownLocation: CLLocationCoordinate2D {
+        lastKnownLocation ?? CLLocationCoordinate2D(latitude: 50, longitude: 50)
+    }
 
     override init() {
         super.init()
@@ -25,4 +29,5 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         lastKnownLocation = locations.first?.coordinate
     }
+    
 }

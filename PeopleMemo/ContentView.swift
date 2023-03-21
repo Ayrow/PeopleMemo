@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    let locationFetcher = LocationFetcher()
     @StateObject private var viewModel = ViewModel()
+    let locationFetcher = LocationFetcher()
     
     var body: some View {
         NavigationStack {
@@ -26,7 +26,6 @@ struct ContentView: View {
                                 .frame(width: 50, height: 50)
                         }
                     }
-
                 }
             }
             .navigationTitle("People Memo")
@@ -47,17 +46,19 @@ struct ContentView: View {
                 ImagePicker(image: $viewModel.selectedPhoto)
             }
             .onChange(of: viewModel.selectedPhoto) { _ in
+                locationFetcher.start()
                 viewModel.showEditSheet.toggle()
             }
             
             
         }
         .sheet(isPresented: $viewModel.showEditSheet) {
-            PersonEditView(person: Person(id: UUID(), name: "", photo: viewModel.selectedPhoto)) { newPerson in
+            PersonEditView(person: Person(id: UUID(), name: "", photo: viewModel.selectedPhoto, location: Location(id: UUID(), latitude: locationFetcher.wrappedLastKnownLocation.latitude, longitude: locationFetcher.wrappedLastKnownLocation.longitude))) { newPerson in
                 viewModel.addPerson(newPerson: newPerson)
             }
         }
     }
+
 }
 
 struct ContentView_Previews: PreviewProvider {

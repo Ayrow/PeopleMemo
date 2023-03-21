@@ -37,7 +37,8 @@ struct PersonEditView: View {
                         var newPerson = person
                         newPerson.id = person.id
                         newPerson.name = name
-                        newPerson.photo = person.photo
+                        newPerson.photo = person.wrappedPhoto
+                        newPerson.location = person.location
                         
                         onSave(newPerson)
                         dismiss()
