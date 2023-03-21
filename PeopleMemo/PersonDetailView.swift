@@ -15,6 +15,10 @@ struct PersonDetailView: View {
     @State private var selectedPicker = 0
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
     
+    let annotation = [
+        Location(id: UUID(), latitude: 51.507222, longitude: -0.1275)
+       ]
+    
     private let tab = ["Photo", "Location"]
     
     var body: some View {
@@ -30,7 +34,10 @@ struct PersonDetailView: View {
                     .resizable()
                     .scaledToFill()
             } else {
-                Map(coordinateRegion: $region)
+                Map(coordinateRegion: $region, annotationItems: annotation) {_ in
+                    MapMarker(coordinate: mapLocation)
+                }
+                
             }
             
             Text(person.name)
