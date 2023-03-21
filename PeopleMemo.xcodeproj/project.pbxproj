@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		941F215929C9A77E00CDBB94 /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941F215829C9A77E00CDBB94 /* LocationFetcher.swift */; };
+		941F215B29C9AB7200CDBB94 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941F215A29C9AB7200CDBB94 /* Location.swift */; };
 		94EA053729C84282006278B1 /* PeopleMemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EA053629C84282006278B1 /* PeopleMemoApp.swift */; };
 		94EA053929C84282006278B1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EA053829C84282006278B1 /* ContentView.swift */; };
 		94EA053B29C84283006278B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94EA053A29C84283006278B1 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		941F215829C9A77E00CDBB94 /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
+		941F215A29C9AB7200CDBB94 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		94EA053329C84282006278B1 /* PeopleMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeopleMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94EA053629C84282006278B1 /* PeopleMemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleMemoApp.swift; sourceTree = "<group>"; };
 		94EA053829C84282006278B1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				94EA054829C8624B006278B1 /* FileManager-DocumentsDirectory.swift */,
 				94EA054429C84C7D006278B1 /* ImagePicker.swift */,
 				94EA054C29C86343006278B1 /* Person.swift */,
+				941F215A29C9AB7200CDBB94 /* Location.swift */,
 				94EA053A29C84283006278B1 /* Assets.xcassets */,
 				94EA053C29C84283006278B1 /* Preview Content */,
 			);
@@ -162,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94EA054729C85801006278B1 /* SavePicker.swift in Sources */,
+				941F215B29C9AB7200CDBB94 /* Location.swift in Sources */,
 				94EA054B29C862CC006278B1 /* ContentView-ViewModel.swift in Sources */,
 				941F215929C9A77E00CDBB94 /* LocationFetcher.swift in Sources */,
 				94EA054929C8624B006278B1 /* FileManager-DocumentsDirectory.swift in Sources */,

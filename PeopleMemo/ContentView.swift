@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    let locationFetcher = LocationFetcher()
     @StateObject private var viewModel = ViewModel()
     
     var body: some View {
